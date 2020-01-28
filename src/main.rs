@@ -24,12 +24,12 @@ fn view(_app: &App, _model: &Model, frame: &Frame) {
     draw.background()
         .color(named::BLACK);
 
-    for circle in &_model.circles {
+    _model.circles.iter().for_each(|circle| {
         draw.ellipse().color(named::WHITE)
             .w(circle.r)
             .h(circle.r)
             .x_y(circle.x, circle.y);
-    };
+    });
 
     draw.to_frame(&_app, &frame);
 }
